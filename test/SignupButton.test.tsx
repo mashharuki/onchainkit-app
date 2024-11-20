@@ -1,10 +1,10 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import { http, WagmiProvider, createConfig } from 'wagmi';
+import { createConfig, http, WagmiProvider } from 'wagmi';
 import { base } from 'wagmi/chains';
 import { mock } from 'wagmi/connectors';
-import LoginButton from './LoginButton';
+import SignupButton from '../src/components/SignupButton';
 
 const config = createConfig({
   chains: [base],
@@ -34,10 +34,10 @@ const renderWithProviders = (component: JSX.Element) => {
   );
 };
 
-describe('LoginButton', () => {
+describe('SignupButton', () => {
   it('should render', () => {
-    renderWithProviders(<LoginButton />);
-    const walletWrapper = screen.getByTestId('ockConnectWallet_Container');
-    expect(walletWrapper).toBeInTheDocument();
+    renderWithProviders(<SignupButton />);
+    const wallet = screen.getByTestId('ockConnectWallet_Container');
+    expect(wallet).toBeInTheDocument();
   });
 });

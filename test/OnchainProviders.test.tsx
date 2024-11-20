@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import { base } from 'viem/chains';
 import { describe, expect, it, vi } from 'vitest';
-import { http, createConfig } from 'wagmi';
+import { createConfig, http } from 'wagmi';
 import { mock } from 'wagmi/connectors';
-import OnchainProviders from './OnchainProviders';
+import OnchainProviders from '../src/context/OnchainProviders';
 
 vi.mock('../wagmi', () => ({
   useWagmiConfig: () =>

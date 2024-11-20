@@ -1,10 +1,10 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import { http, WagmiProvider, createConfig } from 'wagmi';
+import { createConfig, http, WagmiProvider } from 'wagmi';
 import { base } from 'wagmi/chains';
 import { mock } from 'wagmi/connectors';
-import WalletWrapper from './WalletWrapper';
+import LoginButton from '../src/components/LoginButton';
 
 const config = createConfig({
   chains: [base],
@@ -21,22 +21,23 @@ const config = createConfig({
     [base.id]: http(),
   },
 });
+
 const queryClient = new QueryClient();
 
-const renderWithProviders = (Component: React.ComponentType) => {
+const renderWithProviders = (component: JSX.Element) => {
   return render(
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        <Component />
+        {component}
       </QueryClientProvider>
     </WagmiProvider>,
   );
 };
 
-describe('WalletWrapper', () => {
-  it('should renders', () => {
-    renderWithProviders(WalletWrapper);
-    const wallet = screen.getByTestId('ockConnectWallet_Container');
-    expect(wallet).toBeInTheDocument();
+describe('LoginButton', () => {
+  it('should render', () => {
+    renderWithProviders(<LoginButton />);
+    const walletWrapper = screen.getByTestId('ockConnectWallet_Container');
+    expect(walletWrapper).toBeInTheDocument();
   });
 });

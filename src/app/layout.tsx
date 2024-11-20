@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 import { NEXT_PUBLIC_URL } from '../config';
 
-import './global.css';
 import '@coinbase/onchainkit/styles.css';
 import '@rainbow-me/rainbowkit/styles.css';
 import dynamic from 'next/dynamic';
+import './global.css';
 
 const OnchainProviders = dynamic(
-  () => import('src/components/OnchainProviders'),
+  () => import('src/context/OnchainProviders'),
   {
     ssr: false,
   },

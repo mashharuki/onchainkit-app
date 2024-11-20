@@ -21,6 +21,12 @@ type WalletWrapperParams = {
   className?: string;
   withWalletAggregator?: boolean;
 };
+
+/**
+ * WalletWrapper component
+ * @param param0 
+ * @returns 
+ */
 export default function WalletWrapper({
   className,
   text,
@@ -45,7 +51,10 @@ export default function WalletWrapper({
             <EthBalance />
           </Identity>
           <WalletDropdownBasename />
-          <WalletDropdownLink icon="wallet" href="https://wallet.coinbase.com">
+          <WalletDropdownLink 
+            icon="wallet" 
+            href="https://wallet.coinbase.com"
+          >
             Go to Wallet Dashboard
           </WalletDropdownLink>
           <WalletDropdownFundLink />
