@@ -24,8 +24,8 @@ type WalletWrapperParams = {
 
 /**
  * WalletWrapper component
- * @param param0 
- * @returns 
+ * @param param0
+ * @returns
  */
 export default function WalletWrapper({
   className,
@@ -51,10 +51,7 @@ export default function WalletWrapper({
             <EthBalance />
           </Identity>
           <WalletDropdownBasename />
-          <WalletDropdownLink 
-            icon="wallet" 
-            href="https://wallet.coinbase.com"
-          >
+          <WalletDropdownLink icon="wallet" href="https://wallet.coinbase.com">
             Go to Wallet Dashboard
           </WalletDropdownLink>
           <WalletDropdownFundLink />

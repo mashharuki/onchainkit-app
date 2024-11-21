@@ -1,4 +1,8 @@
 'use client';
+import type {
+  TransactionError,
+  TransactionResponse,
+} from '@coinbase/onchainkit/transaction';
 import {
   Transaction,
   TransactionButton,
@@ -6,17 +10,18 @@ import {
   TransactionStatusAction,
   TransactionStatusLabel,
 } from '@coinbase/onchainkit/transaction';
-import type {
-  TransactionError,
-  TransactionResponse,
-} from '@coinbase/onchainkit/transaction';
 import type { Address, ContractFunctionParameters } from 'viem';
 import {
   BASE_SEPOLIA_CHAIN_ID,
   mintABI,
   mintContractAddress,
-} from '../constants';
+} from '../utils/constants';
 
+/**
+ * Transaction Wrapper Component
+ * @param param0
+ * @returns
+ */
 export default function TransactionWrapper({ address }: { address: Address }) {
   const contracts = [
     {

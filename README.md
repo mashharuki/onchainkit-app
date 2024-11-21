@@ -68,3 +68,4 @@ on X at [@onchainkit](https://x.com/onchainkit), [@zizzamia](https://x.com/zizza
 ### 参考文献
 
 1. [Coinbase-developer-platform](https://www.coinbase.com/developer-platform)
+2. [Build a Smart Wallet Funding app with OnchainKit](https://docs.base.org/tutorials/build-smart-wallet-funding-app/)

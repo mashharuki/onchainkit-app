@@ -5,7 +5,7 @@ import {
   metaMaskWallet,
   rainbowWallet,
 } from '@rainbow-me/rainbowkit/wallets';
-import { intmaxwalletsdk } from "intmax-walletsdk/rainbowkit";
+import { intmaxwalletsdk } from 'intmax-walletsdk/rainbowkit';
 import { useMemo } from 'react';
 import { createConfig, http } from 'wagmi';
 import { base, baseSepolia } from 'wagmi/chains';
@@ -13,7 +13,7 @@ import { NEXT_PUBLIC_WC_PROJECT_ID } from './config';
 
 /**
  * wagmi configuration
- * @returns 
+ * @returns
  */
 export function useWagmiConfig() {
   const projectId = NEXT_PUBLIC_WC_PROJECT_ID ?? '';
@@ -23,6 +23,9 @@ export function useWagmiConfig() {
       'To connect to all Wallets you need to provide a NEXT_PUBLIC_WC_PROJECT_ID env variable';
     throw new Error(providerErrMessage);
   }
+
+  // coinbaseWallet.preference = 'smartWalletOnly';
+  coinbaseWallet.preference = 'all';
 
   return useMemo(() => {
     const connectors = connectorsForWallets(
@@ -36,18 +39,18 @@ export function useWagmiConfig() {
           wallets: [rainbowWallet, metaMaskWallet],
         },
         {
-          groupName: "IntmaxWallet",
+          groupName: 'IntmaxWallet',
           wallets: [
             intmaxwalletsdk({
               wallet: {
-                url: "https://wallet.intmax.io",
-                name: "INTMAX Wallet",
-                iconUrl: "https://wallet.intmax.io/favicon.ico",
+                url: 'https://wallet.intmax.io',
+                name: 'INTMAX Wallet',
+                iconUrl: 'https://wallet.intmax.io/favicon.ico',
               },
               metadata: {
-                name: "OnChainKit Sample App",
-                description: "OnChainKit Sample App",
-                icons: ["https://wallet.intmax.io/favicon.ico"],
+                name: 'OnChainKit Sample App',
+                description: 'OnChainKit Sample App',
+                icons: ['https://wallet.intmax.io/favicon.ico'],
               },
             }),
           ],

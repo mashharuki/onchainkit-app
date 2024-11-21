@@ -1,13 +1,16 @@
 'use client';
-import Footer from 'src/components/Footer';
 import TransactionWrapper from 'src/components/TransactionWrapper';
 import WalletWrapper from 'src/components/WalletWrapper';
-import { ONCHAINKIT_LINK } from 'src/links';
 import OnchainkitSvg from 'src/svg/OnchainkitSvg';
+import { ONCHAINKIT_LINK } from 'src/utils/links';
 import { useAccount } from 'wagmi';
 import LoginButton from '../components/LoginButton';
 import SignupButton from '../components/SignupButton';
 
+/**
+ * Page Component
+ * @returns
+ */
 export default function Page() {
   const { address } = useAccount();
 
@@ -33,7 +36,7 @@ export default function Page() {
         <div className="flex h-[450px] w-[450px] max-w-full items-center justify-center rounded-xl bg-[#030712]">
           <div className="rounded-xl bg-[#F3F4F6] px-4 py-[11px]">
             <p className="font-normal text-indigo-600 text-xl not-italic tracking-[-1.2px]">
-              npm install @coinbase/onchainkit
+              Let's Mint NFT
             </p>
           </div>
         </div>
@@ -46,7 +49,6 @@ export default function Page() {
           />
         )}
       </section>
-      <Footer />
     </div>
   );
 }

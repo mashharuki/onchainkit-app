@@ -1,6 +1,10 @@
 'use client';
 import WalletWrapper from './WalletWrapper';
 
+/**
+ * Signup Button Component
+ * @returns
+ */
 export default function SignupButton() {
   return (
     <WalletWrapper
