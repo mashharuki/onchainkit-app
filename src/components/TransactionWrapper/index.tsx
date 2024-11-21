@@ -15,7 +15,7 @@ import {
   BASE_SEPOLIA_CHAIN_ID,
   mintABI,
   mintContractAddress,
-} from '../utils/constants';
+} from '../../utils/constants';
 
 /**
  * Transaction Wrapper Component
@@ -49,7 +49,10 @@ export default function TransactionWrapper({ address }: { address: Address }) {
         onError={handleError}
         onSuccess={handleSuccess}
       >
-        <TransactionButton className="mt-0 mr-auto ml-auto w-[450px] max-w-full text-[white]" />
+        <TransactionButton 
+          className="mt-0 mr-auto ml-auto w-[450px] max-w-full text-[white]" 
+          text='Mint NFT'  
+        />
         <TransactionStatus>
           <TransactionStatusLabel />
           <TransactionStatusAction />

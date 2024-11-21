@@ -1,5 +1,5 @@
 'use client';
-import WalletWrapper from './WalletWrapper';
+import WalletWrapper from './../WalletWrapper';
 
 /**
  * Signup Button Component

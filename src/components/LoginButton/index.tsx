@@ -1,5 +1,6 @@
 'use client';
-import WalletWrapper from './WalletWrapper';
+
+import WalletWrapper from './../WalletWrapper';
 
 /**
  * Login Button Component
