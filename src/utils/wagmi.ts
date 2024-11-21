@@ -1,7 +1,6 @@
 'use client';
 import { connectorsForWallets } from '@rainbow-me/rainbowkit';
 import {
-  coinbaseWallet,
   metaMaskWallet,
   rainbowWallet,
 } from '@rainbow-me/rainbowkit/wallets';
@@ -9,6 +8,7 @@ import { intmaxwalletsdk } from 'intmax-walletsdk/rainbowkit';
 import { useMemo } from 'react';
 import { createConfig, http } from 'wagmi';
 import { base, baseSepolia } from 'wagmi/chains';
+import { coinbaseWallet } from "wagmi/connectors";
 import { NEXT_PUBLIC_WC_PROJECT_ID } from './config';
 
 /**
@@ -25,15 +25,17 @@ export function useWagmiConfig() {
   }
 
   // coinbaseWallet.preference = 'smartWalletOnly';
-  coinbaseWallet.preference = 'all';
+  // coinbaseWallet.preference = 'all';
 
   return useMemo(() => {
     const connectors = connectorsForWallets(
       [
+        /*
         {
           groupName: 'Recommended Wallet',
           wallets: [coinbaseWallet],
         },
+        */
         {
           groupName: 'Other Wallets',
           wallets: [rainbowWallet, metaMaskWallet],
@@ -66,7 +68,14 @@ export function useWagmiConfig() {
       chains: [base, baseSepolia],
       // turn off injected provider discovery
       multiInjectedProviderDiscovery: false,
-      connectors,
+      connectors: [
+        coinbaseWallet({
+          appName: "Coinbase Smart Wallet Test",
+          preference: "smartWalletOnly",
+          appLogoUrl:
+            "https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/8d5cc37f-f422-4bf9-aa9e-759fbefb5be5/alpha-280/w=256,quality=90,fit=scale-down",
+        }),
+      ],
       ssr: true,
       transports: {
         [base.id]: http(),
