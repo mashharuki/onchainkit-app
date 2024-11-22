@@ -7,7 +7,7 @@ import {
 import { intmaxwalletsdk } from 'intmax-walletsdk/rainbowkit';
 import { useMemo } from 'react';
 import { createConfig, http } from 'wagmi';
-import { base, baseSepolia } from 'wagmi/chains';
+import { base, baseSepolia, soneiumMinato } from 'wagmi/chains';
 import { coinbaseWallet } from "wagmi/connectors";
 import { NEXT_PUBLIC_WC_PROJECT_ID } from './config';
 
@@ -65,7 +65,7 @@ export function useWagmiConfig() {
     );
 
     const wagmiConfig = createConfig({
-      chains: [base, baseSepolia],
+      chains: [base, baseSepolia, soneiumMinato],
       // turn off injected provider discovery
       multiInjectedProviderDiscovery: false,
       connectors: [
@@ -80,6 +80,7 @@ export function useWagmiConfig() {
       transports: {
         [base.id]: http(),
         [baseSepolia.id]: http(),
+        [soneiumMinato.id]: http(),
       },
     });
 

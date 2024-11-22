@@ -4,7 +4,7 @@ import {
   Avatar,
   EthBalance,
   Identity,
-  Name,
+  Name
 } from '@coinbase/onchainkit/identity';
 import {
   ConnectWallet,
@@ -32,6 +32,7 @@ export default function WalletWrapper({
   text,
   withWalletAggregator = false,
 }: WalletWrapperParams) {
+
   return (
     <>
       <Wallet>
@@ -41,7 +42,7 @@ export default function WalletWrapper({
           className={className}
         >
           <Avatar className="h-6 w-6" />
-          <Name />
+          <Name/>
         </ConnectWallet>
         <WalletDropdown>
           <Identity className="px-4 pt-3 pb-2" hasCopyAddressOnClick={true}>
